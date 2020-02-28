@@ -115,6 +115,11 @@ export default {
   name: "HelloWorld",
   props: {
     msg: String
+  },
+  data() {
+    return {
+      name: "Handsome"
+    };
   }
 };
 </script>
