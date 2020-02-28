@@ -30,7 +30,7 @@
       </ul>
 
       <h4>jQuery v kostce</h4>
-      <img alt="jQuery" src="../assets/jQuery.png" width="600" />
+      <img alt="jQuery" src="../assets/jQuery.png" width="800" />
 
       <h2>Komponenty</h2>
 
@@ -49,7 +49,7 @@
       <img
         alt="Live cycle"
         src="https://vuejs.org/images/lifecycle.png"
-        width="600"
+        width="800"
       />
 
       <h3>Použití</h3>
@@ -104,6 +104,14 @@
 
       <h4>Výroba</h4>
       <p>Na výrobu se podíváme v praktickém příkladu</p>
+
+      <h4>Komunikace mezi komponentami</h4>
+
+      <img
+        alt="Component comunication"
+        src="../assets/comunication.png"
+        width="800"
+      />
     </div>
   </div>
 </template>
