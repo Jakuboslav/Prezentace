@@ -2,7 +2,7 @@
   <div class="home">
     <Notice v-if="notice" v-model="notice" />
     <img alt="Vue logo" src="../assets/logo.png" />
-    <PrettyComponent msg="Testovací stránka s různejma komponentama" />
+    <Headline :msg="filteredPlayers" type="h1" />
 
     <h2>Nejlepší hráči: (loops)</h2>
     <template v-for="(player, index) in players">
@@ -13,7 +13,6 @@
         @player-removed="notify($event + ' - odebrán', 'orange')"
       />
     </template>
-
     <button @click="addPlayer">Další hráči</button>
     <button @click="removePlayer">Odebrat hráče</button>
 
@@ -44,6 +43,11 @@
       v-model="sampleText"
       :class="{ invalid: errors.length > 0 }"
     />
+
+    <input type="checkbox" v-model="licence" />
+
+    <input type="button" :disabled="!licence" value="odeslat" />
+
     <div class="errors" v-if="errors.length > 0">
       <div v-for="(error, index) in errors" :key="index">{{ error }}</div>
     </div>
@@ -52,14 +56,14 @@
 
 <script>
 // @ is an alias to /src
-import PrettyComponent from "@/components/PrettyComponent.vue";
+import Headline from "@/components/Headline.vue";
 import TopPlayer from "@/components/TopPlayer.vue";
 import Notice from "@/components/Notice.vue";
 
 export default {
-  name: "HandsomePage",
+  name: "Sample",
   components: {
-    PrettyComponent,
+    Headline,
     TopPlayer,
     Notice
   },
@@ -69,8 +73,17 @@ export default {
       rand: 0,
       notice: null,
       sampleText: "",
-      errors: []
+      errors: [],
+      loop: true,
+      licence: false
     };
+  },
+  computed: {
+    filteredPlayers() {
+      return this.players.filter(player => {
+        return player.includes("Handsome");
+      });
+    }
   },
   watch: {
     sampleText: {
@@ -134,5 +147,9 @@ input[type="text"] {
 }
 .invalid {
   border: 3px red solid;
+}
+
+.home {
+  margin-bottom: 1000px;
 }
 </style>

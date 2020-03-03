@@ -27,6 +27,15 @@ npm run lint
 
 ## Osnova
 
+ - Přestavit VueJS
+ - Alternativy k VueJS
+ - Proč si vybíráme VueJS
+ - "Instalace" - vue create xyz
+ - Základní vlastnosti
+ - Základní implementace
+ - Komponenty
+ - Life cycles
+
 ### Komponenty
 
  ukázat sample, nějakou vyrobit

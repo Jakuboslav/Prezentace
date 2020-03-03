@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     rank() {
-      return this.index + 1;
+      return this.index + 1; // this.counter + 1  // Pro ukázání reaktivity
     },
     playerWithRank() {
       return this.rank + ". " + this.player;
