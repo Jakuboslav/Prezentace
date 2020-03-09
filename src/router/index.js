@@ -7,6 +7,10 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
+    redirect: "/home"
+  },
+  {
+    path: "/home",
     name: "Home",
     component: Home
   },
@@ -20,14 +24,20 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/About.vue")
   },
   {
-    path: "/samples",
+    path: "/samples/:handsomeParam?",
     name: "Samples",
-    component: () => import("../views/Samples.vue")
+    component: () => import("../views/Samples.vue"),
+    props: true
   },
   {
     path: "/big-picture",
     name: "big-picture",
     component: () => import("../views/BigPicture.vue")
+  },
+  {
+    path: "/advanced-features",
+    name: "advanced-features",
+    component: () => import("../views/AdvancedFeatures.vue")
   }
 ];
 

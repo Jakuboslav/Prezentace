@@ -4,6 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/big-picture">Big picture</router-link> |
       <router-link to="/samples">Ukázky</router-link> |
+      <router-link to="/advanced-features">Advanced Věci</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view />
@@ -26,7 +27,7 @@
     font-weight: bold;
     color: #2c3e50;
 
-    &.router-link-exact-active {
+    &.router-link-active {
       color: #42b983;
     }
   }

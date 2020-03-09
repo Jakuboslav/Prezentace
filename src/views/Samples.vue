@@ -2,7 +2,6 @@
   <div class="home">
     <Notice v-if="notice" v-model="notice" />
     <img alt="Vue logo" src="../assets/logo.png" />
-    <Headline :msg="filteredPlayers" type="h1" />
 
     <h2>Nejlepší hráči: (loops)</h2>
     <template v-for="(player, index) in players">
@@ -56,22 +55,20 @@
 
 <script>
 // @ is an alias to /src
-import Headline from "@/components/Headline.vue";
 import TopPlayer from "@/components/TopPlayer.vue";
-import Notice from "@/components/Notice.vue";
 
 export default {
-  name: "Sample",
+  name: "Samples",
   components: {
-    Headline,
-    TopPlayer,
-    Notice
+    TopPlayer
+  },
+  props: {
+    handsomeParam: String
   },
   data() {
     return {
       players: ["Handsome 😍", "Laczo 🤬", "Iggy 😢"],
       rand: 0,
-      notice: null,
       sampleText: "",
       errors: [],
       loop: true,
@@ -108,6 +105,13 @@ export default {
       immediate: true
     }
   },
+  mounted() {
+    if (this.handsomeParam)
+      this.notice = {
+        content: "Máme nastavený param: " + this.handsomeParam,
+        type: "cornflowerblue"
+      };
+  },
   methods: {
     getRandNum(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -120,16 +124,6 @@ export default {
     },
     removePlayer() {
       this.players.pop();
-    },
-    notify(content, type) {
-      this.notice = {
-        content: content,
-        type: type
-      };
-    },
-    valid(value) {
-      if (!value) return;
-      return value.match(/^[a-zA-Z]*$/);
     }
   }
 };
